@@ -28,7 +28,11 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // name route　で指定したのでfunction にします
+    protected function redirectTo ()
+    {
+        return route('dashboard');
+    }
 
     /**
      * Create a new controller instance.
