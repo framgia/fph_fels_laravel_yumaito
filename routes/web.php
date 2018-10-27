@@ -14,17 +14,20 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
 
 // Route::view('/', "welcome");
 Route::view('/register', "register");
-Route::view('/login', "login");
+// register.blade.phpで定義した　action="{{ URL::to('/store')}}" method="post">
+// URLを"store"にした時 ,
 Route::post('/store', "UserController@store");
+// 　　　　　　　　　　　”ファイル名＠ファンクション名”
+//　UserControllerで定義した ファンクション名 "public function store"を　＠store
+
+Route::view('/login', "login");
 Route::post('/logs', "UserController@logs");
 
 
+Auth::routes();
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
+Route::get('/home', 'HomeController@index')->name('home');
+});

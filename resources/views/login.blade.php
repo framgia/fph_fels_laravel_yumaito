@@ -83,6 +83,7 @@
                     <br><br>
                     <input type="password" name="password" placeholder="Password">
                     <br><br>
+                    
                     {{csrf_field()}}
                     <button type="submit" name="button">Login</button>
                 </form>

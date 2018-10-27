@@ -78,19 +78,17 @@
             @endif
 
             <div class="content">
-                <form class="" action="index.html" method="post">
-                    <input type="text" name="username" placeholder="Username">
+                <form class="" action="{{ URL::to('/store') }}" method="post">
+                    <input type="text" name="name" placeholder="Username">
                     <br><br>
                     <input type="text" name="email" placeholder="Email">
                      <br><br>
                     <input type="password" name="password" placeholder="Password">
                      <br><br>
-                  {{csrf_token()}}
+                    {{csrf_token()}}
                      <br><br>
                     <button type="submit" name="button">Register</button>
-                </form>
-
-               
+                </form>            
             </div>
         </div>
     </body>
