@@ -78,17 +78,19 @@
             @endif
 
             <div class="content">
-                <form class="" action="{{ URL::to('/store') }}" method="post">
+                <form class="" action="/store" method="post">
+                    {{ csrf_field() }}
+                    <!-- field = "hidden" -->
+                    <!-- <input type="hidden" name="name" placeholder="Username"> -->
                     <input type="text" name="name" placeholder="Username">
                     <br><br>
                     <input type="text" name="email" placeholder="Email">
                      <br><br>
                     <input type="password" name="password" placeholder="Password">
-                     <br><br>
-                    {{csrf_token()}}
+                                     
                      <br><br>
                     <button type="submit" name="button">Register</button>
-                </form>            
+                </form>               
             </div>
         </div>
     </body>
