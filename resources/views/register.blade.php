@@ -81,17 +81,69 @@
                 <form class="" action="/store" method="post">
                     {{ csrf_field() }}
                     <!-- field = "hidden" -->
-                    <!-- <input type="hidden" name="name" placeholder="Username"> -->
+                  
                     <input type="text" name="name" placeholder="Username">
                     <br><br>
                     <input type="text" name="email" placeholder="Email">
                      <br><br>
+
+                     <form method="post" action="/myaction" accept-charset="UTF-8" files => "true">
+
+                    <!-- 成功時 -->
+                    @if (session('success'))
+                         <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
+
+                    <!-- エラーメッセージ -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        </div>
+                    @endif
+                    
+                    <div class="form-group">
+                        @if ($user->avatar_filename)
+                            <p>
+                                <img src="{{ asset('storage/avatar/' .$user->avatar_filename) }}" alt="avatar" />
+                            </p>
+                        @endif
+                        {!! Form::label('file', '画像アップロード', ['class' => 'control-label']) !!}
+                        {!! Form::file('file') !!}
+                    </div>
+                                      
+                    <div class="form-group">
+                        {!! Form::submit('アップロード', ['class' => 'btn btn-default']) !!}
+                    </div>
+
+                    {!! Form::close() !!}
+                    <br><br>            
                     <input type="password" name="password" placeholder="Password">
-                                     
-                     <br><br>
+                    <br><br>
                     <button type="submit" name="button">Register</button>
                 </form>               
             </div>
         </div>
     </body>
 </html>
+                 <!--    @section('content') 
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <img src="/uploads/avatars/{{ $user->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+                                <h2>{{ $user->name }}'s profile</h2>
+                                <form enctype="multipart/form-data" action="/profile" method="POST">
+                                    <label>Update Profile Image</label>
+                                        <input type="file" name="avatar">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="submit" class="pull-right btn btn-sm btn-priary">
+                                </form>    
+                            </div>
+                        </div>
+                    </div>    
+                    @endsection   -->       
+
+                  
