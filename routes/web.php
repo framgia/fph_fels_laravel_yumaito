@@ -11,6 +11,21 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+
+// Route::get('/', 'ArticlesController@index')->name('home'); 必要か確認！
+// ArticlesController存在していない
+Route::view('/register', "register");
+// Route::view('/login', "login");
+Route::post('/store', "UserController@store");
+Route::post('/logs', "UserController@logs");
+
+
+// Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+
+
+
