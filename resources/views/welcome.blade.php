@@ -28,16 +28,38 @@
                 align-items: center;
                 display: flex;
                 justify-content: center;
+                border-bottom: 1px;
+                
             }
 
             .position-ref {
                 position: relative;
+                text-align: right;
+            }
+
+            .top-left {
+               position: absolute;
+                left: 10px;
+                top: 18px;
+                font-size: 15px;
+                font-weight: 600;
+                padding: 0 25px;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+               
             }
 
             .top-right {
                 position: absolute;
                 right: 10px;
                 top: 18px;
+                font-size: 15px;
+                font-weight: 600;
+                padding: 0 25px;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
             }
 
             .content {
@@ -49,7 +71,8 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: blue;
+                border-bottom: solid 0.4px blue;               
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -65,21 +88,26 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+            <div class="top-left title">
+                <font size="5">Elearning System</font>
+            </div>    
+           
+            <div class="top-right links">
+                <a href="{{ url('/categories') }}">Categories</a>
+                   
+                <a href="{{ url('/link2') }}">Link2</a>
 
-            <div class="content">
+                <a href="{{ url('/link3') }}">Link3</a>
+                
+            </div>
+        </div>
+           
+
+
+       <!--      <div class="">
+
+          <div class="content"> 
                 <div class="title m-b-md">
                     Laravel
                 </div>
@@ -91,8 +119,8 @@
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> -->
         </div>
     </body>
 </html>
