@@ -43,4 +43,17 @@ class UserController extends Controller
             echo "try again";
         }
     }      
+
+    // web.phpにある function about,contact
+
+    public function about()
+    {
+        return view('about');
+        // viewフォルダ内に"about.blade.php"ファイルで HTML
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }

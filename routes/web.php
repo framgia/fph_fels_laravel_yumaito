@@ -13,22 +13,12 @@
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashbord');
 });
 
+Route::get('/about', 'UserController@about');
+//　UserControllerファイル内の　ファンクション@aboutに　"return view('about');" 定義
+// ブラウザーに "about.blade.php"表示される
 
-// register.blade.phpで定義したaction="{{ URL::to('/store')}}" method="post">
-// URLを"store"にした時 ,
-Route::post('store', "UserController@store");
-                     // ”ファイル名   ＠ファンクション名”
-//UserControllerで定義した ファンクション名 "public function store"を＠store
 
-Route::post('/upload','HomeController@upload');
-
-Route::post('/myaction','UsersController@store');
-// register.blade.phpの   action="/myaction"  method="post"
-
-// Auth::routes();
-
-// Route::get('/home','HomeController@index')->name('home');
 
